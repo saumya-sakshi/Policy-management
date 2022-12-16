@@ -1,0 +1,29 @@
+table {
+    width: 100%;
+    margin-top: 2%;
+    margin-left: .5%;
+    margin-left: .5%;
+  }
+  #update {
+    background-color: blue;
+  }
+  #delete {
+    background-color: red;
+  }
+  #add {
+    background-color: green;
+    align-self:right;
+  
+  }
+  #back {
+    background-color: purple;
+    align-self:right;
+  
+  }
+  td{
+    align-items: center;
+  }
+  tr{
+    align-items: center;
+  }
+  

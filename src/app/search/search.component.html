@@ -1,0 +1,51 @@
+
+<mat-card>
+      <button mat-raised-button  id ="back" (click)="back()">Back</button>
+  </mat-card>
+
+  <div class="container" style="margin: 5%;">
+    <input type="text"  name="search" [(ngModel)]="searchText" placeholder="SEARCH..."> 
+  </div>
+  
+  <table mat-table class="mat-elevation-z8">
+      <thead>
+          <tr>
+            <th mat-header-cell>ID</th>
+            <th mat-header-cell>Policy Name</th>
+            <th mat-header-cell>Start Date</th>
+            <th mat-header-cell>Duration in Years</th>
+            <th mat-header-cell>Comapany Name</th>
+            <th mat-header-cell>Initial Deposit</th>
+            <th mat-header-cell>Policy Type</th>
+            <th mat-header-cell>User Type</th>
+            <th mat-header-cell>Terms per Years</th>
+            <th mat-header-cell>Term Amount</th>
+            <th mat-header-cell>Interest</th>
+           
+            
+            
+          </tr>
+          </thead>
+          <tbody>
+          <tr mat-row *ngFor="let policyDetails of polices | filter: searchText">
+          
+      
+      
+            <td mat-cell>{{policyDetails.id}}</td>
+            <td mat-cell>{{policyDetails.policyName}}</td>
+            <td mat-cell>{{policyDetails.startDate}}</td>
+            <td mat-cell>{{policyDetails.years}}</td>
+            <td mat-cell>{{policyDetails.companyName}}</td>
+            <td mat-cell>{{policyDetails.initialAmount}}</td>
+            <td mat-cell>{{policyDetails.policyType}}</td>
+            <td mat-cell>{{policyDetails.userType}}</td>
+            <td mat-cell>{{policyDetails.termsPerYear}}</td>
+            <td mat-cell>{{policyDetails.termAmount}}</td>
+            <td mat-cell>{{policyDetails.interest}}</td>
+           
+            
+          </tr>
+          </tbody>
+    </table>
+    
+    

@@ -1,0 +1,120 @@
+
+<mat-card>
+<button mat-raised-button id="add" (click)="add()" >ADD NEW POLICY</button><button mat-raised-button id="back" (click)="back()" >BACK</button>
+    
+</mat-card>
+<div>
+<table mat-table class="mat-elevation-z8">
+    <thead>
+        <tr mat-row>
+          <th mat-header-cell>ID</th>
+          <th mat-header-cell>Policy Name</th>
+          <th mat-header-cell>Start Date</th>
+          <th mat-header-cell>Duration in Years</th>
+          <th mat-header-cell>Comapany Name</th>
+          <th mat-header-cell>Initial Deposit</th>
+          <th mat-header-cell>Policy Type</th>
+          <th mat-header-cell>User Type</th>
+          <th mat-header-cell>Terms per Years</th>
+          <th mat-header-cell>Term Amount</th>
+          <th mat-header-cell>Interest</th>
+          <th mat-header-cell colspan="2">Action</th>
+          
+          
+          
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let policyDetails of polices">
+        
+    
+    
+          <td mat-cell>{{policyDetails.id}}</td>
+          <td mat-cell>{{policyDetails.policyName}}</td>
+          <td mat-cell>{{policyDetails.startDate}}</td>
+          <td mat-cell>{{policyDetails.years}}</td>
+          <td mat-cell>{{policyDetails.companyName}}</td>
+          <td mat-cell>{{policyDetails.initialAmount}}</td>
+          <td mat-cell>{{policyDetails.policyType}}</td>
+          <td mat-cell>{{policyDetails.userType}}</td>
+          <td mat-cell>{{policyDetails.termsPerYear}}</td>
+          <td mat-cell>{{policyDetails.termAmount}}</td>
+          <td mat-cell>{{policyDetails.interest}}</td>
+          <td mat-cell><button mat-raised-button id="update" (click)="update(policyDetails)"  >UPDATE</button></td>
+          <td mat-cell><button mat-raised-button id="delete" (click)="delete(policyDetails)" >DELETE</button></td>
+    
+          
+        </tr>
+        </tbody>
+  </table>
+</div>
+  
+  <div *ngIf="showMe" style="align-content: center;">
+    <mat-card >
+      <mat-toolbar color="primary">
+        Update The Policy
+      </mat-toolbar>
+   <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="formGroup" (ngSubmit)="updatePolicy()">
+    <mat-label>Id</mat-label>   
+    <mat-form-field > 
+         <input matInput placeholder="Id" formControlName="id" [(ngModel)]="policyToUpdate.id" readonly>
+       </mat-form-field>
+       <mat-label>Policy Name</mat-label>   
+       <mat-form-field >
+         <input matInput type="text" placeholder="Policy Name" [(ngModel)]="policyToUpdate.policyName" formControlName="policyName">
+       </mat-form-field>
+       <mat-label>Start Date</mat-label>   
+       <mat-form-field >
+        <input matInput type="date" placeholder="Start Date" [(ngModel)]="policyToUpdate.startDate" formControlName="startDate">
+      </mat-form-field>
+      <mat-label>Duration of Years</mat-label>   
+      <mat-form-field >
+        <input matInput type="number" placeholder="Duration of Years" [(ngModel)]="policyToUpdate.years" formControlName="years">
+      </mat-form-field>
+      <mat-label>Company Name</mat-label>   
+      <mat-form-field >
+        <input matInput type="text" placeholder="Company Name" [(ngModel)]="policyToUpdate.companyName" formControlName="companyName">
+      </mat-form-field>
+      <mat-label>Initial Deposit</mat-label>   
+      <mat-form-field >
+        <input matInput type="number" placeholder="Initial Deposit" [(ngModel)]="policyToUpdate.initialAmount" formControlName="initialAmount">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Policy Type</mat-label>
+        <select matNativeControl required formControlName="policyType" [(ngModel)]="policyToUpdate.policyType" >
+          <option value="Vehicle Insurance">Vehicle Insurance</option>
+          <option value="Travel Insurance">Travel Insurance</option>
+          <option value="Life Insurance">Life insurance</option>
+          <option value="Health Insurance">Health Insurance</option>
+          <option value="Retirement  Plans">Child Plans</option>
+          <option value="Retirement  Plans">Retirement Plans</option>
+        </select>
+      </mat-form-field>
+      <mat-label>User Type</mat-label>   
+      <mat-form-field >
+        <input matInput type="text" placeholder="User Type" [(ngModel)]="policyToUpdate.userType" formControlName="userType">
+      </mat-form-field>
+      <mat-label>Terms per Year</mat-label>   
+      <mat-form-field >
+        <input matInput type="number" placeholder="Terms per Year" [(ngModel)]="policyToUpdate.termsPerYear" formControlName="termsPerYear">
+      </mat-form-field>
+      <mat-label>Term Amount</mat-label>   
+      
+      <mat-form-field >
+        <input matInput type="number" placeholder="Term Amount" [(ngModel)]="policyToUpdate.termAmount" formControlName="termAmount">
+      </mat-form-field>
+      <mat-label>Interest</mat-label>   
+      <mat-form-field >
+        <input matInput type="number" placeholder="Interest" [(ngModel)]="policyToUpdate.interest" formControlName="interest">
+      </mat-form-field>
+
+
+       <button mat-raised-button type="submit">Submit Details</button>
+   </form>
+  </mat-card>
+     </div>
+    
+  
+
+  
+ 

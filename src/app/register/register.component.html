@@ -1,0 +1,49 @@
+<mat-card><h1 style="align-self: center">Policy Management System</h1>
+    <button mat-raised-button id="back" (click)="back()">Back</button>
+</mat-card>
+<div >
+   
+      <mat-card >
+          <mat-toolbar color="primary">
+              Register Customer Page
+          </mat-toolbar>
+       <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="formGroup" (ngSubmit)="loginProcess()">
+           <mat-form-field > 
+             <input matInput placeholder="First Name" formControlName="firstName" [(ngModel)]="customers.firstName">
+           </mat-form-field>
+  
+           <mat-form-field >
+             <input matInput type="text" placeholder="Last Name" [(ngModel)]="customers.lastName" formControlName="lastName">
+           </mat-form-field>
+           <mat-form-field >
+            <input matInput type="date" placeholder="Date Of Birth" [(ngModel)]="customers.dob" formControlName="dob">
+          </mat-form-field>
+          <mat-form-field >
+            <input matInput type="text" placeholder="Address" [(ngModel)]="customers.address" formControlName="address">
+          </mat-form-field>
+          <mat-form-field >
+            <input matInput type="number" placeholder="Phone Number" [(ngModel)]="customers.contactNumber" formControlName="contactNumber">
+          </mat-form-field>
+          <mat-form-field >
+            <input matInput type="email" placeholder="Email" [(ngModel)]="customers.email" formControlName="email">
+          </mat-form-field>
+          <mat-form-field >
+            <input matInput type="number" placeholder="Salary" [(ngModel)]="customers.salary" formControlName="salary">
+          </mat-form-field>
+          <mat-form-field >
+            <input matInput type="text" placeholder="Pan number" [(ngModel)]="customers.panNumber" formControlName="panNumber">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>employerType</mat-label>
+            <select matNativeControl required formControlName="employerType" [(ngModel)]="customers.employerType">
+              <option value="Customer">CUSTOMER</option>
+              <option value="Admin">ADMIN</option>
+            </select>
+          </mat-form-field>
+   
+   
+           <button mat-raised-button type="submit">Login</button>
+       </form>
+      </mat-card>
+   </div>
+  
